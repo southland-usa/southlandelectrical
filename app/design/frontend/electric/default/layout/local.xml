@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <default><!--*****default*****-->
+    
+    <remove name="store_language" />
+        <reference name="top.links">
+            <remove name="wishlist_link"/>
+            <action method="removeLinkByUrl">
+                <url helper="customer/getAccountUrl"/>
+            </action>
+        </reference>
+       
+    
+        <reference name="head"> 
+            <action method="addItem">
+                <type>skin_css</type>
+                <file>css/font-awesome.css</file>
+            </action>
+            
+            <action method="addItem">
+                <type>skin_css</type>
+                <file>css/bootstrap.min.css</file>
+            </action>
+            
+            <action method="addItem">
+                <type>skin_css</type>
+                <file>css/bootstrap-theme.min.css</file>
+            </action>
+            
+            <action method="addItem">
+                <type>skin_js</type>
+                <file>js/bootstrap.min.js</file>
+            </action>
+            
+        </reference>
+        
+        
+        <remove name="product.info.options.wrapper"/>
+        <reference name="root">
+            <remove name="breadcrumbs"/>
+        </reference>
+       
+        <reference name="left"><!--*****left*****-->
+        
+            <block type="core/template" name="catalog.sidenav" template="page/custom.phtml" before="cart_sidebar"/>
+            
+            <remove name ="tags_popular"/>
+            <remove name="left.permanent.callout"></remove>
+            <remove name="left.newsletter"></remove>
+        </reference>
+        
+        <reference name="right"><!--*****right*****-->
+            <remove name="cart_sidebar"/>
+            <remove name="product_viewed"/>
+            <remove name="right.permanent.callout"></remove>
+            <remove name="right.poll"></remove>
+            <remove name="paypal.partner.right.logo"></remove>
+            <remove name="catalog.compare.sidebar"></remove>
+        </reference>
+        
+        
+    </default>
+   
+    <customer_logged_in>
+        <reference name="top.links">
+            <action method="removeLinkByUrl">
+                <url helper="customer/getLogoutUrl"/>
+            </action>
+        </reference>
+    </customer_logged_in>
+    <customer_logged_out>
+        <reference name="top.links">
+            <action method="removeLinkByUrl">
+                <url helper="customer/getLoginUrl"/>
+            </action>
+        </reference>
+    </customer_logged_out>
+   
+       
+    <catalog_category_view>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+            <action method="setIsHandle">
+                <applied>1</applied>
+            </action>
+        </reference>
+        
+        <reference name="left">
+            <remove name="catalog.sidenav"></remove>
+        </reference>
+        
+    </catalog_category_view>
+    
+     <catalogsearch_result_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+            <action method="setIsHandle">
+                <applied>1</applied>
+            </action>
+        </reference>
+        
+        <reference name="left">
+            <remove name="catalog.sidenav"></remove>
+        </reference>
+        
+    </catalogsearch_result_index>
+    
+    <catalog_product_view>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+            <action method="setIsHandel">
+                <applied>1</applied>
+            </action>
+        </reference>
+
+        
+        <reference name="content">
+            <remove name="product.info.upsell"/>
+            <remove name="product.info.additional"/>
+            <remove name="product.attributes"/>
+            <remove name="product.description"/>
+            <remove name="product.info.addto" />
+            <remove name="product.clone_prices"/>
+            <remove name="product.tierprices"/>
+        </reference>
+    </catalog_product_view>
+    
+    <contacts_index_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <action method="setIsHandle">
+            <applied>1</applied>
+        </action>
+    </contacts_index_index>  
+    
+    
+    
+</layout>

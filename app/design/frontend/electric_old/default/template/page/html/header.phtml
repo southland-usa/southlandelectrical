@@ -1,0 +1,138 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+<style>
+    .top-bar{
+        background: #EEEFF1 none repeat scroll 0 0;
+        line-height: 1em;
+        margin: 0;
+        padding: 5px 10px 6px;
+        text-align: right;
+        font-size: 15px;
+    }
+    .top-bar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    .top-bar li {
+        display: inline;
+    }
+    .top-bar li:before {
+        content: " | ";
+        padding: 0 20px;
+    }
+
+    .top-bar li:first-child:before {
+        content: none;
+    }
+</style>
+
+<div class="top-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 paddingZero">
+                <ul>
+                    <li>Open Weekdays 8am - 5pm EST</li>
+                    <li>International Phone: 336-227-1486</li>
+                    <li>&#9993; sales@southlandelectrical.com</li>
+                    <li>Contact Us</li>
+                </ul>      
+            </div>
+        </div>
+    </div>
+</div>
+<div class="header-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 paddingZero">
+                <div class="header">
+                    <?php if ($this->getIsHomePage()): ?>
+                        <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+                    <?php else: ?>
+                        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+                    <?php endif ?>
+                    <div class="quick-access">
+                        <?php echo $this->getChildHtml('topSearch') ?>
+                        <p class="welcome-msg"><?php echo $this->getChildHtml('welcome') ?> <?php echo $this->getAdditionalHtml() ?></p>
+                        <?php echo $this->getChildHtml('topLinks') ?>
+                        <?php echo $this->getChildHtml('store_language') ?>
+                    </div>
+                    <?php echo $this->getChildHtml('topContainer'); ?>
+                </div>
+
+                <div class="newNav">
+                    <div class="col-md-3 col-sm-3 col-xs-12 navBlock chat">
+                        <span class="icon">
+                            <img src="<?php echo $this->getSkinUrl("images/chat.png") ?>">
+                        </span>
+                        <span class="navtext">
+                            <h6>CHAT WITH AN EXPERT</h6>
+                            <p>We’re online now to answer your questions.</p>
+                        </span>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 navBlock experince">
+                        <span class="icon">
+            <!--                <i class="fa fa-wechat"></i>-->
+                            <img src="<?php echo $this->getSkinUrl("images/experince.png") ?>">
+                        </span>
+                        <span class="navtext">
+                            <h6>OVER 30 YEARS OF EXPERIENCE</h6>
+                            <p>Huge inventory, fast repairs, and the
+                                best customer service in the industry</p>
+                        </span>
+                    </div>
+
+                    <div class="col-md-3 col-sm-3 col-xs-12 navBlock certifide">
+                        <span class="icon">
+                            <img src="<?php echo $this->getSkinUrl("images/setting.png") ?>">
+                        </span>
+                        <span class="navtext">
+                            <h6>CERTIFIED REPAIR SHOP
+                            </h6>
+                            <p>We can get you back up
+                                and running.</p>
+                        </span>
+                    </div>
+
+                    <div class="col-md-2 col-sm-2 col-xs-12 navBlock ">
+                        <img class="card" src="<?php echo $this->getSkinUrl("images/card.png") ?>">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+<?php //echo $this->getChildHtml('topMenu') ?>
